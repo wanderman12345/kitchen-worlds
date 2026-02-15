@@ -4,8 +4,7 @@ from config_custom import DATA_CONFIG_PATH
 from data_generator.data_generation_run import data_generation_process
 from data_generator.run_utils import get_config_from_argparse, parallel_processing
 
-config = get_config_from_argparse(default_config_name='config_generation.yaml', default_config_dir=DATA_CONFIG_PATH)
-
+config = get_config_from_argparse(default_config_name='config_generation_multi.yaml', default_config_dir=DATA_CONFIG_PATH)
 
 def process(index):
     """ exist a version in cognitive-architectures for generating mini-datasets (single process),

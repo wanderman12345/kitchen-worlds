@@ -7,6 +7,8 @@ verbose: true
 ## configuration for PDDLStream
 planner:
   visualization: false
+  domain_pddl: 'pddl_domains/pr2_domain_pigi.pddl'
+  stream_pddl: 'pddl_domains/pr2_stream_pigi.pddl'
   scene_only: false
   use_heuristic_fc: false
   dataset_mode: true
@@ -17,6 +19,14 @@ planner:
   max_plans: 25
   max_solutions: 1
   log_failures: false
+
+world:
+  ## method 1: use pre-specified builder inside world_builder/builders,
+  ##         followed by builder specific arguments
+  builder_name: 'test_kitchen_full'
+  builder_kwargs:
+    movable_categories: ['edible']
+    goal_predicates: ['openedjoint', 'holding', 'on', 'in']
 
 ## specify the TAMP problem with preconfigured scene layout & robot
 problem:
@@ -33,6 +43,7 @@ problem:
 
 ## outputs to generate
 data:
+  out_dir: '../outputs/custom_pr2_kitchen_full_pigi/'
   exp_dir: '../outputs'
   exp_subdir: 'custom_piginet_data'
   exp_name: 'original'

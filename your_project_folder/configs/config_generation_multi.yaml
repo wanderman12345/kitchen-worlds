@@ -8,7 +8,6 @@ verbose: true
 parallel: false
 n_data: 1
 
-
 ## pybullet related
 sim:
   viewer: true
@@ -22,12 +21,13 @@ sim:
   skip_prompt: false
 
 robot:
-  robot_name: 'pr2'
+  robot_name: 'fetch'
   builder_name: 'build_robot_from_args'
   builder_kwargs:
     ## x, y, z joint limits for base motion planning
     custom_limits: [[0, -4, -0.5], [3, 8, 3]]
-    initial_xy: [2, 3]
+    base_q: [1.5, 3, 0, 0]
+    use_torso: true
 
 world:
   ## method 1: use pre-specified builder inside world_builder/builders,
@@ -61,8 +61,8 @@ data:
 planner:
   visualize: false
   timeout: 300
-  domain_pddl: 'pddl_domains/pr2_domain_pigi.pddl'
-  stream_pddl: 'pddl_domains/pr2_stream_pigi.pddl'
+  domain_pddl: 'pddl_domains/mobile_v5_domain.pddl'
+  stream_pddl: 'pddl_domains/mobile_v5_stream.pddl'
   downward_time: 1
 
   ## only true for piginet data collection
