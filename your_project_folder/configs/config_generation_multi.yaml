@@ -25,8 +25,9 @@ robot:
   builder_name: 'build_robot_from_args'
   builder_kwargs:
     ## x, y, z joint limits for base motion planning
+    # custom_limits: [[-3, -10, 0], [10, 16, 5.8]]
     custom_limits: [[0, -4, -0.5], [3, 8, 3]]
-    base_q: [1.5, 3, 0, 3]
+    base_q: [2, 2, 0, 2.5]
     use_torso: true
 
 world:
@@ -75,7 +76,8 @@ streams:
   cfree: false
   teleport: false
   movable_collisions: true
+  motion_collisions: false
   base_collisions: true
-  top_grasp_tolerance: 0.8
-  ir_max_attempts: 15
-  use_all_grasps: false
+  top_grasp_tolerance: null
+  ir_max_attempts: 60
+  use_all_grasps: true 
