@@ -1,7 +1,7 @@
 ## all relative paths in this file has pybullet_planning as the root dir
 
 ## debug related
-seed: 995953
+seed: 1
 verbose: true
 
 ## data collection mode
@@ -26,7 +26,7 @@ robot:
   builder_kwargs:
     ## x, y, z joint limits for base motion planning
     # custom_limits: [[-3, -10, 0], [10, 16, 5.8]]
-    custom_limits: [[0, -4, -0.5], [3, 8, 3]]
+    custom_limits: [[0, -4, 0], [3, 8, 0.4]]
     base_q: [2, 2, 0, 2.5]
     use_torso: true
 
@@ -36,7 +36,7 @@ world:
   builder_name: 'test_kitchen_full'
   builder_kwargs:
     movable_categories: ['edible']
-    goal_predicates: ['openedjoint', 'holding', 'on', 'in']
+    goal_predicates: ['in']
 
 data:
   out_dir: '../outputs/custom_pr2_kitchen_full/'
@@ -61,7 +61,7 @@ data:
 ## configuration for PDDLStream
 planner:
   visualize: false
-  timeout: 300
+  timeout: 600
   domain_pddl: 'pddl_domains/mobile_v5_domain.pddl'
   stream_pddl: 'pddl_domains/mobile_v5_stream.pddl'
   downward_time: 1
@@ -76,8 +76,8 @@ streams:
   cfree: false
   teleport: false
   movable_collisions: true
-  motion_collisions: false
+  motion_collisions: true
   base_collisions: true
   top_grasp_tolerance: null
-  ir_max_attempts: 60
+  ir_max_attempts: 120
   use_all_grasps: true 
